@@ -2,30 +2,22 @@ import React from "react";
 import {
   Facebook,
   Instagram,
-  Menu,
   MessageCircle,
   Phone,
-  Search,
   Twitter,
   User,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import MobileMenu from "./MobileMenu";
+import { navigationLinks } from "@/constants";
+import SearchPage from "./Search";
 
 const Header = () => {
   const socialLinks = [
     { href: "#", icon: <Facebook size={16} /> },
     { href: "#", icon: <Twitter size={16} /> },
     { href: "#", icon: <Instagram size={16} /> },
-  ];
-
-  const navigationLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/hotels", label: "Hotels" },
-    { href: "/trips", label: "Trips" },
-    { href: "/rent-a-car", label: "Rent a Car" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -80,15 +72,11 @@ const Header = () => {
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <div className="p-3 hidden lg:flex bg-orange-500 cursor-pointer text-white rounded-full">
-              <Search />
-            </div>
-            <div className="p-3 hidden lg:flex bg-orange-500 cursor-pointer text-white rounded-full">
-              <Menu />
-            </div>
-            <div className="p-3 hidden lg:flex bg-orange-500 cursor-pointer text-white rounded-full">
+            <SearchPage />
+            <div className="p-3 lg:flex bg-orange-500 cursor-pointer text-white rounded-full">
               <User />
             </div>
+            <MobileMenu />
           </div>
         </div>
       </div>

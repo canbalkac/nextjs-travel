@@ -41,6 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --background-image-herobg: url("/slider/bgswipe.jpg");
+  --animate-move-dot: movedot 6s ease-in-out infinite;
 }
 
 :root {
@@ -118,5 +120,19 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes movedot {
+    0% {
+      left: 0%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 0%;
+    }
   }
 }

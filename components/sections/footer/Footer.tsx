@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { navigationLinks } from "@/constants";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,15 +11,6 @@ const Footer = () => {
     { href: "#", icon: <Facebook size={16} /> },
     { href: "#", icon: <Twitter size={16} /> },
     { href: "#", icon: <Instagram size={16} /> },
-  ];
-
-  const navigationLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/hotels", label: "Hotels" },
-    { href: "/trips", label: "Trips" },
-    { href: "/rent-a-car", label: "Rent a Car" },
-    { href: "/contact", label: "Contact" },
   ];
 
   const instagramImages = Array.from(
@@ -46,13 +38,18 @@ const Footer = () => {
             width={564}
             src="/travelfooter.png"
             alt="Call to action graphic"
-            className="hidden md:block absolute w-full -bottom-28"
+            className="hidden md:block absolute w-8/12 -bottom-28"
           />
         </div>
       </div>
       <div className="container mx-auto py-32 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-8">
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 relative">
           <h3 className="text-2xl font-bold">Travel</h3>
+          <div className="relative w-16 h-1 bg-orange-500 mt-2">
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-orange-500"></div>
+            <div className="absolute h-3 w-3 bg-orange-500 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+            <div className="absolute h-1.5 w-1.5 bg-white ml-0.5 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+          </div>
           <p className="mt-4 text-sm">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
             sint illo nemo a sed nam, inventore alias? Explicabo repudiandae a
@@ -71,8 +68,13 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-bold mb-4">Useful Links</h3>
-          <div className="space-y-2 text-sm">
+          <h3 className="text-2xl font-bold">Useful Links</h3>
+          <div className="relative w-16 h-1 bg-orange-500 mt-2">
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-orange-500"></div>
+            <div className="absolute h-3 w-3 bg-orange-500 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+            <div className="absolute h-1.5 w-1.5 bg-white ml-0.5 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+          </div>
+          <div className="space-y-2 text-sm mt-4">
             {navigationLinks.map((link, index) => (
               <Link
                 key={index}
@@ -85,8 +87,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="lg:col-span-2">
-          <h3 className="text-2xl font-bold mb-4">Instagram</h3>
-          <div className="grid grid-cols-6 gap-2">
+          <h3 className="text-2xl font-bold">Instagram</h3>
+          <div className="relative w-16 h-1 bg-orange-500 mt-2">
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-orange-500"></div>
+            <div className="absolute h-3 w-3 bg-orange-500 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+            <div className="absolute h-1.5 w-1.5 bg-white ml-0.5 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+          </div>
+          <div className="grid grid-cols-6 gap-2 mt-4">
             {instagramImages.map((src, index) => (
               <Image
                 key={index}
@@ -100,8 +107,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="lg:col-span-2">
-          <h3 className="text-2xl font-bold mb-4">Subscribe</h3>
-          <p className="text-sm mb-4">
+          <h3 className="text-2xl font-bold">Subscribe</h3>
+          <div className="relative w-16 h-1 bg-orange-500 mt-2">
+            <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-orange-500"></div>
+            <div className="absolute h-3 w-3 bg-orange-500 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+            <div className="absolute h-1.5 w-1.5 bg-white ml-0.5 rounded-full top-1/2 -translate-y-1/2 animate-move-dot"></div>
+          </div>
+          <p className="text-sm mb-4 mt-4">
             Subscribe our newsletter for getting quick updates.
           </p>
           <div className="flex flex-col sm:flex-row">
