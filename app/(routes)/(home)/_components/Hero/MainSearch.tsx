@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const MainSearch = () => {
   return (
@@ -56,9 +57,11 @@ const MainSearch = () => {
           </SelectContent>
         </Select>
 
-        <Button className="bg-orange-500 text-white hover:bg-orange-600 py-6 w-full lg:w-auto">
-          Find Now
-        </Button>
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+          <Button className="bg-orange-500 text-white hover:bg-orange-600 py-6 w-full lg:w-auto cursor-pointer">
+            Find Now
+          </Button>
+        </motion.div>
       </div>
     </div>
   );
