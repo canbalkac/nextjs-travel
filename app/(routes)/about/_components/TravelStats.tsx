@@ -15,7 +15,7 @@ const TravelStats = () => {
     threshold: 0.2,
   });
   return (
-    <div className="py-16 mb-52">
+    <div className="py-16">
       <div className="mx-auto container text-center">
         <h2 className="text-3xl lg:text-5xl font-bold text-blue-600 mb-8">
           Why Choose Us?
