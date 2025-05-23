@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Facebook,
@@ -12,6 +13,7 @@ import Image from "next/image";
 import MobileMenu from "./MobileMenu";
 import { navigationLinks } from "@/constants";
 import SearchPage from "./Search";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const socialLinks = [
@@ -19,6 +21,8 @@ const Header = () => {
     { href: "#", icon: <Twitter size={16} /> },
     { href: "#", icon: <Instagram size={16} /> },
   ];
+
+  const pathname = usePathname();
 
   return (
     <header className="bg-gray-900 text-white">
@@ -55,6 +59,7 @@ const Header = () => {
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
           <Image
             src={"/logo.png"}
+            priority={true}
             alt="Travel"
             width={210}
             height={50}
@@ -65,7 +70,11 @@ const Header = () => {
               <Link
                 key={index}
                 href={navLink.href}
-                className="hover:text-orange-500"
+                className={`${
+                  pathname == navLink.href
+                    ? "underline decoration-orange-500"
+                    : "hover:text-orange-500"
+                }`}
               >
                 {navLink.label}
               </Link>
