@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+
+import ReCAPTCHA from "react-google-recaptcha";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -25,15 +27,19 @@ const formSchema = z.object({
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
   }),
+  recaptcha: z.string().min(1, "Please verify that you are not a robot."),
 });
 
 const ContactForm = () => {
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
       message: "",
+      recaptcha: "",
     },
   });
 
@@ -102,6 +108,17 @@ const ContactForm = () => {
                 <FormMessage />
               </FormItem>
             )}
+          />
+          <ReCAPTCHA
+            sitekey="6LeSeEYrAAAAAJs5VsETxpwYbrYj4CIAwQmJ-z_D"
+            onChange={(token: string | null) => {
+              setRecaptchaToken(token);
+              form.setValue("recaptcha", token || "");
+            }}
+            onExpired={() => {
+              setRecaptchaToken(null);
+              form.setValue("recaptcha", "");
+            }}
           />
           <Button type="submit">Submit</Button>
         </form>
