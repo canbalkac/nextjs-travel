@@ -7,6 +7,7 @@ import {
   Phone,
   Twitter,
   User,
+  UserPlus,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,6 +15,7 @@ import MobileMenu from "./MobileMenu";
 import { navigationLinks } from "@/constants";
 import SearchPage from "./Search";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
   const socialLinks = [
@@ -23,6 +25,8 @@ const Header = () => {
   ];
 
   const pathname = usePathname();
+
+  const { data: session } = useSession();
 
   return (
     <header className="bg-gray-900 text-white">
@@ -82,9 +86,21 @@ const Header = () => {
           </nav>
           <div className="flex items-center space-x-4">
             <SearchPage />
-            <div className="p-3 lg:flex bg-orange-500 cursor-pointer text-white rounded-full">
-              <User />
-            </div>
+            {session ? (
+              <Link
+                href="/profile"
+                className="p-3 lg:flex bg-orange-500 cursor-pointer text-white rounded-full"
+              >
+                <UserPlus />
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="p-3 lg:flex bg-blue-400 cursor-pointer text-white rounded-full"
+              >
+                <User />
+              </Link>
+            )}
             <MobileMenu />
           </div>
         </div>

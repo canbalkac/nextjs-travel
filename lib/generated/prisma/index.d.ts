@@ -1052,6 +1052,7 @@ export namespace Prisma {
     photo: string | null
     firstName: string | null
     lastName: string | null
+    hashedPassword: string | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1061,6 +1062,7 @@ export namespace Prisma {
     photo: string | null
     firstName: string | null
     lastName: string | null
+    hashedPassword: string | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1070,6 +1072,7 @@ export namespace Prisma {
     photo: number
     firstName: number
     lastName: number
+    hashedPassword: number
     _all: number
   }
 
@@ -1081,6 +1084,7 @@ export namespace Prisma {
     photo?: true
     firstName?: true
     lastName?: true
+    hashedPassword?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1090,6 +1094,7 @@ export namespace Prisma {
     photo?: true
     firstName?: true
     lastName?: true
+    hashedPassword?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1099,6 +1104,7 @@ export namespace Prisma {
     photo?: true
     firstName?: true
     lastName?: true
+    hashedPassword?: true
     _all?: true
   }
 
@@ -1181,6 +1187,7 @@ export namespace Prisma {
     photo: string
     firstName: string | null
     lastName: string | null
+    hashedPassword: string
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1207,6 +1214,7 @@ export namespace Prisma {
     photo?: boolean
     firstName?: boolean
     lastName?: boolean
+    hashedPassword?: boolean
   }, ExtArgs["result"]["user"]>
 
 
@@ -1218,9 +1226,10 @@ export namespace Prisma {
     photo?: boolean
     firstName?: boolean
     lastName?: boolean
+    hashedPassword?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "photo" | "firstName" | "lastName", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "username" | "photo" | "firstName" | "lastName" | "hashedPassword", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1232,6 +1241,7 @@ export namespace Prisma {
       photo: string
       firstName: string | null
       lastName: string | null
+      hashedPassword: string
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1630,6 +1640,7 @@ export namespace Prisma {
     readonly photo: FieldRef<"User", 'String'>
     readonly firstName: FieldRef<"User", 'String'>
     readonly lastName: FieldRef<"User", 'String'>
+    readonly hashedPassword: FieldRef<"User", 'String'>
   }
     
 
@@ -4131,7 +4142,8 @@ export namespace Prisma {
     username: 'username',
     photo: 'photo',
     firstName: 'firstName',
-    lastName: 'lastName'
+    lastName: 'lastName',
+    hashedPassword: 'hashedPassword'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -4265,6 +4277,7 @@ export namespace Prisma {
     photo?: StringFilter<"User"> | string
     firstName?: StringNullableFilter<"User"> | string | null
     lastName?: StringNullableFilter<"User"> | string | null
+    hashedPassword?: StringFilter<"User"> | string
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4274,6 +4287,7 @@ export namespace Prisma {
     photo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
+    hashedPassword?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4286,6 +4300,7 @@ export namespace Prisma {
     photo?: StringFilter<"User"> | string
     firstName?: StringNullableFilter<"User"> | string | null
     lastName?: StringNullableFilter<"User"> | string | null
+    hashedPassword?: StringFilter<"User"> | string
   }, "id" | "email" | "username">
 
   export type UserOrderByWithAggregationInput = {
@@ -4295,6 +4310,7 @@ export namespace Prisma {
     photo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
+    hashedPassword?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -4310,6 +4326,7 @@ export namespace Prisma {
     photo?: StringWithAggregatesFilter<"User"> | string
     firstName?: StringNullableWithAggregatesFilter<"User"> | string | null
     lastName?: StringNullableWithAggregatesFilter<"User"> | string | null
+    hashedPassword?: StringWithAggregatesFilter<"User"> | string
   }
 
   export type HotelWhereInput = {
@@ -4478,6 +4495,7 @@ export namespace Prisma {
     photo: string
     firstName?: string | null
     lastName?: string | null
+    hashedPassword: string
   }
 
   export type UserUncheckedCreateInput = {
@@ -4487,6 +4505,7 @@ export namespace Prisma {
     photo: string
     firstName?: string | null
     lastName?: string | null
+    hashedPassword: string
   }
 
   export type UserUpdateInput = {
@@ -4495,6 +4514,7 @@ export namespace Prisma {
     photo?: StringFieldUpdateOperationsInput | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    hashedPassword?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4503,6 +4523,7 @@ export namespace Prisma {
     photo?: StringFieldUpdateOperationsInput | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    hashedPassword?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserCreateManyInput = {
@@ -4512,6 +4533,7 @@ export namespace Prisma {
     photo: string
     firstName?: string | null
     lastName?: string | null
+    hashedPassword: string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -4520,6 +4542,7 @@ export namespace Prisma {
     photo?: StringFieldUpdateOperationsInput | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    hashedPassword?: StringFieldUpdateOperationsInput | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -4528,6 +4551,7 @@ export namespace Prisma {
     photo?: StringFieldUpdateOperationsInput | string
     firstName?: NullableStringFieldUpdateOperationsInput | string | null
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
+    hashedPassword?: StringFieldUpdateOperationsInput | string
   }
 
   export type HotelCreateInput = {
@@ -4738,6 +4762,7 @@ export namespace Prisma {
     photo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
+    hashedPassword?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -4747,6 +4772,7 @@ export namespace Prisma {
     photo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
+    hashedPassword?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -4756,6 +4782,7 @@ export namespace Prisma {
     photo?: SortOrder
     firstName?: SortOrder
     lastName?: SortOrder
+    hashedPassword?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
